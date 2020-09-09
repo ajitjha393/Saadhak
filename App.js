@@ -3,11 +3,11 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
 export default function App() {
-  return (
-    <View>
-      <StatusBar style="auto" />
-    </View>
-  )
+	return (
+		<View style={styles.container}>
+			<StatusBar style="auto" />
+		</View>
+	)
 }
 
 const styles = StyleSheet.create({})
