@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar'
 import React, { useState } from 'react'
-import { View, TextInput, Button, StyleSheet } from 'react-native'
+import { View, TextInput, Button, StyleSheet, Text } from 'react-native'
 
 export default function App() {
 	const [enteredGoal, setEnteredGoal] = useState('')
+
 	const [goals, setGoals] = useState([])
 
-	const addGoalHandler = () => console.log(enteredGoal)
+	const addGoalHandler = () => {
+		setGoals((currentGoals) => [...currentGoals, enteredGoal])
+	}
 
 	return (
 		<View style={styles.screen}>
@@ -19,7 +22,11 @@ export default function App() {
 				/>
 				<Button title="  +  " onPress={addGoalHandler} />
 			</View>
-			<View></View>
+			<View>
+				{goals.map((goal) => (
+					<Text key={Math.random() + goal}>{goal}</Text>
+				))}
+			</View>
 			<StatusBar style="auto" />
 		</View>
 	)
